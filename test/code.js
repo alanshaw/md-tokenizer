@@ -48,6 +48,26 @@ test("block code", function (t) {
     ["new line","\n"]
   ]
 
-  //logger(md, tokens)
+  //logger(md)
+  runner(t, md, tokens)
+})
+
+test("code inline", function (t) {
+var md = multiline.stripIndent(function () {/*
+    # Inline code
+    Some text `some.code()` some more text
+  */})
+
+  var tokens = [
+    ["heading 1","# "],
+    ["text","Inline code"],
+    ["new line","\n"],
+    ["text","Some text "],
+    ["code inline","`some.code()`"],
+    ["text"," some more text"],
+    ["new line","\n"]
+  ]
+
+  //logger(md)
   runner(t, md, tokens)
 })

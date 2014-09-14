@@ -16,7 +16,10 @@ module.exports = function (cb) {
 
   t.addRule(/^[^!\[\]()'"#=\-`\n]+$/, "text")
 
-  t.addRule(/^`[^`]+.*?`$/, "code inline")
+  t.addRule(/^`$/, "code inline")
+  t.addRule(/^`[^`].*?`$/, "code inline")
+  t.addRule(/^`[^`]*$/, 'code inline continue')
+
   t.addRule(/^```[a-z]*$/, "code block")
 
   t.addRule(/^[!\[\]()'"#=\-`]*$/, "text continue")
