@@ -1,4 +1,4 @@
-# Markdown tokenizer
+# md-tokenizer [![Dependency Status](https://david-dm.org/alanshaw/md-tokenizer.svg?style=flat)](https://david-dm.org/alanshaw/md-tokenizer)
 
 Streaming markdown tokenizer.
 
