@@ -14,7 +14,7 @@ Some text
   function logFoo () {
     console.log(foo)
   }
-```
+\```
 More text
 ```
 
