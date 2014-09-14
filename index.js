@@ -12,17 +12,25 @@ module.exports = function (cb) {
   t.addRule(/^##### $/, "heading 5")
   t.addRule(/^###### $/, "heading 6")
 
-  t.addRule(/^[*-]|[0-9]+\.$/, "list item")
+  // Workaround 3 or more literal issue
+  t.addRule(/^==+$/, "text")
+  t.addRule(/^--+$/, "text")
+  t.addRule(/^##+$/, "text")
 
-  t.addRule(/^[^!\[\]()'"#=\-`\n]+$/, "text")
+  t.addRule(/^\n\s*[*+\-]\s+$/, "list item")
+  t.addRule(/^\n\s*[0-9]+\.\s+$/, "ordered list item")
 
+  t.addRule(/^```([a-z]*|\s*\n)$/, "code block")
   t.addRule(/^`$/, "code inline")
-  t.addRule(/^`[^`].*?`$/, "code inline")
-  t.addRule(/^`[^`]*$/, 'code inline continue')
 
-  t.addRule(/^```[a-z]*$/, "code block")
+  t.addRule(/^\*$/, "emphasis 1")
+  t.addRule(/^_$/, "emphasis 1")
 
-  t.addRule(/^[!\[\]()'"#=\-`]*$/, "text continue")
+  t.addRule(/^\*\*$/, "emphasis 2")
+  t.addRule(/^__$/, "emphasis 2")
+
+  t.addRule(/^[^!\[\]()'"#=\-`*_\n]+$/, "text")
+  t.addRule(/^[!\[\]()'"#=\-`*_]$/, "text")
 
   t.addRule(/^\n$/, "new line")
 

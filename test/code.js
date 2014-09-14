@@ -25,25 +25,25 @@ test("block code", function (t) {
     ["code block","```js"],
     ["new line","\n"],
     ["text","  var foo "],
-    ["text continue","="],
+    ["text","="],
     ["text"," "],
-    ["text continue","\""],
+    ["text","\""],
     ["text","bar"],
-    ["text continue","\""],
+    ["text","\""],
     ["new line","\n"],
     ["text","  function logFoo "],
-    ["text continue","()"],
+    ["text","("],
+    ["text",")"],
     ["text"," {"],
     ["new line","\n"],
     ["text","    console.log"],
-    ["text continue","("],
+    ["text","("],
     ["text","foo"],
-    ["text continue",")"],
+    ["text",")"],
     ["new line","\n"],
     ["text","  }"],
     ["new line","\n"],
-    ["code block","```"],
-    ["new line","\n"],
+    ["code block","```\n"],
     ["text","More text"],
     ["new line","\n"]
   ]
@@ -53,7 +53,7 @@ test("block code", function (t) {
 })
 
 test("code inline", function (t) {
-var md = multiline.stripIndent(function () {/*
+  var md = multiline.stripIndent(function () {/*
     # Inline code
     Some text `some.code()` some more text
   */})
@@ -63,7 +63,11 @@ var md = multiline.stripIndent(function () {/*
     ["text","Inline code"],
     ["new line","\n"],
     ["text","Some text "],
-    ["code inline","`some.code()`"],
+    ["code inline","`"],
+    ["text","some.code"],
+    ["text","("],
+    ["text",")"],
+    ["code inline","`"],
     ["text"," some more text"],
     ["new line","\n"]
   ]
