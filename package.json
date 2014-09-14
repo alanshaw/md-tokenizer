@@ -1,0 +1,38 @@
+{
+  "name": "md-tokenizer",
+  "version": "0.0.0",
+  "description": "Streaming markdown tokenizer",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alanshaw/md-tokenizer.git"
+  },
+  "keywords": [
+    "markdown",
+    "md",
+    "streaming",
+    "tokenizer",
+    "parser",
+    "gfm",
+    "marked"
+  ],
+  "author": "Alan Shaw",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alanshaw/md-tokenizer/issues"
+  },
+  "homepage": "https://github.com/alanshaw/md-tokenizer",
+  "devDependencies": {
+    "multiline": "^1.0.0",
+    "tape": "^2.14.0"
+  },
+  "dependencies": {
+    "tokenizer": "^1.1.2"
+  },
+  "bin": {
+    "md-tokenizer": "bin/md-tokenizer.js"
+  }
+}
