@@ -26,8 +26,12 @@ Output:
 
 ```js
 ["heading 1","# "]
-["text","Hello World"]
+["text","Hello"]
+["whitespace"," "]
+["text","World"]
 ["new line","\n"]
-["text","Some text"]
+["text","Some"]
+["whitespace"," "]
+["text","text"]
 ["new line","\n"]
 ```
