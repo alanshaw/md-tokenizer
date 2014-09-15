@@ -15,11 +15,23 @@ test("heading 1", function (t) {
   */})
 
   var tokens = [
-    ["heading 1", "# "],
-    ["text", "Hello World"],
-    ["new line", "\n"]
+    ["heading 1","# "],
+    ["text","Hello World"],
+    ["new line","\n"],
+    ["new line","\n"],
+    ["text","Boring text"],
+    ["new line","\n"],
+    ["list item","\n* "],
+    ["text","Item one"],
+    ["new line","\n"],
+    ["list item","- "],
+    ["text","Item two"],
+    ["new line","\n"],
+    ["list item","+ "],
+    ["text","Item three"],
+    ["new line","\n"]
   ]
 
-  logger(md)
-  //runner(t, md, tokens)
+  //logger(md)
+  runner(t, md, tokens)
 })

@@ -17,8 +17,8 @@ module.exports = function (cb) {
   t.addRule(/^--+$/, "text")
   t.addRule(/^##+$/, "text")
 
-  t.addRule(/^\n\s*[*+\-]\s+$/, "list item")
-  t.addRule(/^\n\s*[0-9]+\.\s+$/, "ordered list item")
+  t.addRule(/^\s*[*+\-]\s+$/, "list item")
+  t.addRule(/^\s*[0-9]+\.\s+$/, "ordered list item")
 
   t.addRule(/^```([a-z]*|\s*\n)$/, "code block")
   t.addRule(/^`$/, "code inline")
@@ -29,8 +29,8 @@ module.exports = function (cb) {
   t.addRule(/^\*\*$/, "emphasis 2")
   t.addRule(/^__$/, "emphasis 2")
 
-  t.addRule(/^[^!\[\]()'"#=\-`*_\n]+$/, "text")
-  t.addRule(/^[!\[\]()'"#=\-`*_]$/, "text")
+  t.addRule(/^[^!\[\]()'"#=\-`*_+\n]+$/, "text")
+  t.addRule(/^[!\[\]()'"#=\-`*_+]$/, "text")
 
   t.addRule(/^\n$/, "new line")
 
