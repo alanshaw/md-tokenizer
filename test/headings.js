@@ -9,8 +9,11 @@ test("heading 1", function (t) {
   */})
 
   var tokens = [
-    ["heading 1", "# "],
-    ["text", "Hello World"],
+    ["hash","#"],
+    ["whitespace"," "],
+    ["text","Hello"],
+    ["whitespace"," "],
+    ["text","World"],
     ["new line", "\n"]
   ]
 
@@ -25,9 +28,11 @@ test("heading 1 underline", function (t) {
   */})
 
   var tokens = [
-    ["text", "Hello World"],
-    ["new line", "\n"],
-    ["heading 1 underline", "===="],
+    ["text","Hello"],
+    ["whitespace"," "],
+    ["text","World"],
+    ["new line","\n"],
+    ["underline","===="],
     ["new line", "\n"]
   ]
 
@@ -41,8 +46,11 @@ test("heading 2", function (t) {
   */})
 
   var tokens = [
-    ["heading 2", "## "],
-    ["text", "Hello World"],
+    ["heading","##"],
+    ["whitespace"," "],
+    ["text","Hello"],
+    ["whitespace"," "],
+    ["text","World"],
     ["new line", "\n"]
   ]
 
@@ -63,7 +71,8 @@ test("heading 2 underline", function (t) {
     ["new line", "\n"]
   ]
 
-  runner(t, md, tokens)
+  logger(md)
+  //runner(t, md, tokens)
 })
 
 test("heading 3", function (t) {

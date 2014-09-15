@@ -3,36 +3,36 @@ var Tokenizer = require("tokenizer")
 module.exports = function (cb) {
   var t = new Tokenizer(cb)
 
-  t.addRule(/^# $/, "heading 1")
-  t.addRule(/^====*$/, "heading 1 underline")
-  t.addRule(/^## $/, "heading 2")
-  t.addRule(/^----*$/, "heading 2 underline")
-  t.addRule(/^### $/, "heading 3")
-  t.addRule(/^#### $/, "heading 4")
-  t.addRule(/^##### $/, "heading 5")
-  t.addRule(/^###### $/, "heading 6")
+  t.addRule(/^#{1,6}$/, "heading") // Heading
+  t.addRule(/^#{7,}$/, "text")
+  t.addRule(/^={1,2}$/, "text")
+  t.addRule(/^={3,}$/, "equal underline")
+  t.addRule(/^-$/, "minus") // List item
+  t.addRule(/^--$/, "text")
+  t.addRule(/^-{3,}$/, "minus underline")
 
-  // Workaround 3 or more literal issue
-  t.addRule(/^==+$/, "text")
-  t.addRule(/^--+$/, "text")
-  t.addRule(/^##+$/, "text")
+  t.addRule(/^\*$/, "star") // Emphasis/list item
+  t.addRule(/^\+$/, "plus") // List item
+  t.addRule(/^[0-9]+\.$/, "number") // Ordered list item
+  t.addRule(/^`$/, "tick") // Code block or inline code
+  t.addRule(/^_$/, "underscore") // Emphasis
 
-  t.addRule(/^\s*[*+\-]\s+$/, "list item")
-  t.addRule(/^\s*[0-9]+\.\s+$/, "ordered list item")
+  t.addRule(/^!$/, "bang") // Image
+  t.addRule(/^\($/, "open paren") // URL/Image
+  t.addRule(/^\)$/, "close paren") // URL/Image
+  t.addRule(/^\[$/, "open square") // URL/Image
+  t.addRule(/^\]$/, "close square") // URL/Image
+  t.addRule(/^'$/, "single quot") // URL/Image
+  t.addRule(/^"$/, "double quot") // URL/Image
 
-  t.addRule(/^```([a-z]*|\s*\n)$/, "code block")
-  t.addRule(/^`$/, "code inline")
+  t.addRule(/^>$/, "gt") // Blockquote
 
-  t.addRule(/^\*$/, "emphasis 1")
-  t.addRule(/^_$/, "emphasis 1")
-
-  t.addRule(/^\*\*$/, "emphasis 2")
-  t.addRule(/^__$/, "emphasis 2")
-
-  t.addRule(/^[^!\[\]()'"#=\-`*_+\n]+$/, "text")
-  t.addRule(/^[!\[\]()'"#=\-`*_+]$/, "text")
-
+  // Separate newline from whitespace since it's important
   t.addRule(/^\n$/, "new line")
+  t.addRule(/^[^\S\n]$/, "whitespace")
+
+  // Anything not a special is just text
+  t.addRule(/^[^!\[\]()'"#=\-`*_+\s>]+$/, "text")
 
   return t
 }

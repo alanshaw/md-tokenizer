@@ -5,29 +5,57 @@ var runner = require("./util/runner")
 
 test("emphasis 1", function (t) {
   var md = multiline.stripIndent(function () {/*
-    # Some *italic* and __bold__ in the title
+    # Heading 1
+    foo # Some *italic* and __bold__ in the title
     **and** also in some _text_
   */})
 
   var tokens = [
-    ["heading 1","# "],
-    ["text","Some "],
-    ["emphasis 1","*"],
-    ["text","italic"],
-    ["emphasis 1","*"],
-    ["text"," and "],
-    ["emphasis 2","__"],
-    ["text","bold"],
-    ["emphasis 2","__"],
-    ["text"," in the title"],
+    ["hash","#"],
+    ["whitespace"," "],
+    ["text","Heading"],
+    ["whitespace"," "],
+    ["text","1"],
     ["new line","\n"],
-    ["emphasis 2","**"],
+    ["text","foo"],
+    ["whitespace"," "],
+    ["hash","#"],
+    ["whitespace"," "],
+    ["text","Some"],
+    ["whitespace"," "],
+    ["star","*"],
+    ["text","italic"],
+    ["star","*"],
+    ["whitespace"," "],
     ["text","and"],
-    ["emphasis 2","**"],
-    ["text"," also in some "],
-    ["emphasis 1","_"],
+    ["whitespace"," "],
+    ["underscore","_"],
+    ["underscore","_"],
+    ["text","bold"],
+    ["underscore","_"],
+    ["underscore","_"],
+    ["whitespace"," "],
+    ["text","in"],
+    ["whitespace"," "],
+    ["text","the"],
+    ["whitespace"," "],
+    ["text","title"],
+    ["new line","\n"],
+    ["star","*"],
+    ["star","*"],
+    ["text","and"],
+    ["star","*"],
+    ["star","*"],
+    ["whitespace"," "],
+    ["text","also"],
+    ["whitespace"," "],
+    ["text","in"],
+    ["whitespace"," "],
+    ["text","some"],
+    ["whitespace"," "],
+    ["underscore","_"],
     ["text","text"],
-    ["emphasis 1","_"],
+    ["underscore","_"],
     ["new line","\n"]
   ]
 

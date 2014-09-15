@@ -10,6 +10,8 @@ test("heading 1", function (t) {
     Boring text
 
     * Item one
+      * Sub item one
+      * Sub item two
     - Item two
     + Item three
   */})
@@ -32,6 +34,6 @@ test("heading 1", function (t) {
     ["new line","\n"]
   ]
 
-  //logger(md)
-  runner(t, md, tokens)
+  logger(md)
+  //runner(t, md, tokens)
 })
