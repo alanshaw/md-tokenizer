@@ -9,7 +9,7 @@ test("heading 1", function (t) {
   */})
 
   var tokens = [
-    ["hash","#"],
+    ["heading","#"],
     ["whitespace"," "],
     ["text","Hello"],
     ["whitespace"," "],
@@ -32,7 +32,7 @@ test("heading 1 underline", function (t) {
     ["whitespace"," "],
     ["text","World"],
     ["new line","\n"],
-    ["underline","===="],
+    ["underline equal","===="],
     ["new line", "\n"]
   ]
 
@@ -65,14 +65,16 @@ test("heading 2 underline", function (t) {
   */})
 
   var tokens = [
-    ["text", "Hello World"],
-    ["new line", "\n"],
-    ["heading 2 underline", "---"],
+    ["text","Hello"],
+    ["whitespace"," "],
+    ["text","World"],
+    ["new line","\n"],
+    ["underline dash","---"],
     ["new line", "\n"]
   ]
 
-  logger(md)
-  //runner(t, md, tokens)
+  //logger(md)
+  runner(t, md, tokens)
 })
 
 test("heading 3", function (t) {
@@ -86,20 +88,33 @@ test("heading 3", function (t) {
   */})
 
   var tokens = [
-    ["heading 1","# "],
-    ["text","Heading 1"],
+    ["heading","#"],
+    ["whitespace"," "],
+    ["text","Heading"],
+    ["whitespace"," "],
+    ["text","1"],
     ["new line","\n"],
     ["text","Text"],
     ["new line","\n"],
-    ["heading 2","## "],
-    ["text","Heading 2"],
+    ["heading","##"],
+    ["whitespace"," "],
+    ["text","Heading"],
+    ["whitespace"," "],
+    ["text","2"],
     ["new line","\n"],
-    ["text","More text"],
+    ["text","More"],
+    ["whitespace"," "],
+    ["text","text"],
     ["new line","\n"],
-    ["heading 3","### "],
-    ["text","Heading 3"],
+    ["heading","###"],
+    ["whitespace"," "],
+    ["text","Heading"],
+    ["whitespace"," "],
+    ["text","3"],
     ["new line","\n"],
-    ["text","...and more"],
+    ["text","...and"],
+    ["whitespace"," "],
+    ["text","more"],
     ["new line","\n"]
   ]
 

@@ -6,16 +6,20 @@ module.exports = function (cb) {
   t.addRule(/^#{1,6}$/, "heading") // Heading
   t.addRule(/^#{7,}$/, "text")
   t.addRule(/^={1,2}$/, "text")
-  t.addRule(/^={3,}$/, "equal underline")
-  t.addRule(/^-$/, "minus") // List item
+  t.addRule(/^={3,}$/, "underline equal")
+  t.addRule(/^-$/, "list item dash") // List item
   t.addRule(/^--$/, "text")
-  t.addRule(/^-{3,}$/, "minus underline")
+  t.addRule(/^-{3,}$/, "underline dash")
 
   t.addRule(/^\*$/, "star") // Emphasis/list item
-  t.addRule(/^\+$/, "plus") // List item
-  t.addRule(/^[0-9]+\.$/, "number") // Ordered list item
-  t.addRule(/^`$/, "tick") // Code block or inline code
-  t.addRule(/^_$/, "underscore") // Emphasis
+  t.addRule(/^\*\*$/, "emphasis")
+  t.addRule(/^\+$/, "list item plus")
+  t.addRule(/^[0-9]+\.$/, "list item ordered")
+  t.addRule(/^`$/, "code inline")
+  t.addRule(/^``$/, "text")
+  t.addRule(/^```$/, "code block")
+  t.addRule(/^_{1,2}$/, "emphasis")
+  t.addRule(/^_{3,}$/, "text")
 
   t.addRule(/^!$/, "bang") // Image
   t.addRule(/^\($/, "open paren") // URL/Image
@@ -29,7 +33,7 @@ module.exports = function (cb) {
 
   // Separate newline from whitespace since it's important
   t.addRule(/^\n$/, "new line")
-  t.addRule(/^[^\S\n]$/, "whitespace")
+  t.addRule(/^[^\S\n]+$/, "whitespace")
 
   // Anything not a special is just text
   t.addRule(/^[^!\[\]()'"#=\-`*_+\s>]+$/, "text")
