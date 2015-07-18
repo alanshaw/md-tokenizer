@@ -5,16 +5,21 @@ var runner = require("./util/runner")
 
 test("heading 1", function (t) {
   var md = multiline.stripIndent(function () {/*
-    # Hello World
+   # Hello World
 
-    Boring text
+   Boring text
 
-    * Item one
-      * Sub item one
-      * Sub item two
-    - Item two
-    + Item three
-  */})
+   `your-great-feature`
+
+   `your+amazing+feature`
+
+   * Item one
+   * Sub item two
+   * Sub item three
+   - Item four
+   + Item five
+   */
+  })
 
   var tokens = [
     ["heading","#"],
@@ -29,22 +34,30 @@ test("heading 1", function (t) {
     ["text","text"],
     ["new line","\n"],
     ["new line","\n"],
+    ["code inline","`"],
+    ["text","your"],
+    ["text","-"],
+    ["text","great"],
+    ["text","-"],
+    ["text","feature"],
+    ["code inline","`"],
+    ["new line","\n"],
+    ["new line","\n"],
+    ["code inline","`"],
+    ["text","your"],
+    ["text","+"],
+    ["text","amazing"],
+    ["text","+"],
+    ["text","feature"],
+    ["code inline","`"],
+    ["new line","\n"],
+    ["new line","\n"],
     ["star","*"],
     ["whitespace"," "],
     ["text","Item"],
     ["whitespace"," "],
     ["text","one"],
     ["new line","\n"],
-    ["whitespace","  "],
-    ["star","*"],
-    ["whitespace"," "],
-    ["text","Sub"],
-    ["whitespace"," "],
-    ["text","item"],
-    ["whitespace"," "],
-    ["text","one"],
-    ["new line","\n"],
-    ["whitespace","  "],
     ["star","*"],
     ["whitespace"," "],
     ["text","Sub"],
@@ -53,17 +66,23 @@ test("heading 1", function (t) {
     ["whitespace"," "],
     ["text","two"],
     ["new line","\n"],
-    ["list item dash","-"],
+    ["star","*"],
     ["whitespace"," "],
-    ["text","Item"],
+    ["text","Sub"],
     ["whitespace"," "],
-    ["text","two"],
-    ["new line","\n"],
-    ["list item plus","+"],
-    ["whitespace"," "],
-    ["text","Item"],
+    ["text","item"],
     ["whitespace"," "],
     ["text","three"],
+    ["new line","\n"],
+    ["list item dash","- "],
+    ["text","Item"],
+    ["whitespace"," "],
+    ["text","four"],
+    ["new line","\n"],
+    ["list item plus","+ "],
+    ["text","Item"],
+    ["whitespace"," "],
+    ["text","five"],
     ["new line","\n"]
   ]
 
