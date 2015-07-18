@@ -7,13 +7,15 @@ module.exports = function (cb) {
   t.addRule(/^#{7,}$/, "text")
   t.addRule(/^={1,2}$/, "text")
   t.addRule(/^={3,}$/, "underline equal")
-  t.addRule(/^-$/, "list item dash") // List item
+  t.addRule(/^-\s$/, "list item dash") // List item dash
+  t.addRule(/^-$/, "text")
   t.addRule(/^--$/, "text")
   t.addRule(/^-{3,}$/, "underline dash")
 
   t.addRule(/^\*$/, "star") // Emphasis/list item
   t.addRule(/^\*\*$/, "emphasis")
-  t.addRule(/^\+$/, "list item plus")
+  t.addRule(/^\+\s$/, "list item plus") // List item plus
+  t.addRule(/^\+$/, "text")
   t.addRule(/^[0-9]+\.$/, "list item ordered")
   t.addRule(/^`$/, "code inline")
   t.addRule(/^``$/, "text")
