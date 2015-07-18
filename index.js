@@ -17,6 +17,7 @@ module.exports = function (cb) {
   t.addRule(/^[0-9]+\.$/, "list item ordered")
   t.addRule(/^`$/, "code inline")
   t.addRule(/^``$/, "text")
+  t.addRule(/^```\w+$/, "code block")
   t.addRule(/^```$/, "code block")
   t.addRule(/^_{1,2}$/, "emphasis")
   t.addRule(/^_{3,}$/, "text")
