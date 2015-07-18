@@ -7,7 +7,7 @@ module.exports = function (cb) {
   t.addRule(/^#{7,}$/, "text")
   t.addRule(/^={1,2}$/, "text")
   t.addRule(/^={3,}$/, "underline equal")
-  t.addRule(/^-$/, "list item dash") // List item
+  t.addRule(/^-\s*$/, "list item dash") // List item
   t.addRule(/^--$/, "text")
   t.addRule(/^-{3,}$/, "underline dash")
 
