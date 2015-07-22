@@ -11,7 +11,9 @@ module.exports = function (cb) {
   t.addRule(/^--$/, "text")
   t.addRule(/^-{3,}$/, "underline dash")
 
-  t.addRule(/^\*$/, "star") // Emphasis/list item
+  t.addRule(/^\*\*$/, "emphasis")
+  t.addRule(/^\*\s$/, "list item star") // list item star
+  t.addRule(/^\*$/, "star") // Emphasis
   t.addRule(/^\*\*$/, "emphasis")
   t.addRule(/^\+$/, "list item plus")
   t.addRule(/^[0-9]+\.$/, "list item ordered")
